@@ -1,0 +1,39 @@
+
+
+    <mat-toolbar>
+    <span>My Application</span>
+    </mat-toolbar>
+    <header></header>
+    <div class="example-container">
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field> -->
+    <p class="centre">Fill the Userform </p>
+
+    <label for="username">Enter your Username: </label>
+    <input [(ngModel)]='user.name'/><br>
+    <label for="email">Enter your email: </label>
+    <input [(ngModel)]='user.email'/><br>
+    <label for="age">Enter your age: </label>
+    <input [(ngModel)]='user.age'/><br>
+    <!-- <label for="age">Enter your password: </label>
+    <input [(ngModel)]='user.password'/><br> -->
+    <!-- <mat-label>Enter your password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'"> -->
+
+    <input type="submit" (click)="save()"><br>
+
+    <!-- <button mat-raised-button color="primary" >submit</button> -->
+    <ol>
+        <li *ngFor='let user of users'>
+            {{user.name}}, {{user.email}},{{user.age}} <button (click)='deleteUser(user.id)'>Delete</button>
+        </li>
+    </ol>
+    
+
+</div>
+  <footer></footer>
