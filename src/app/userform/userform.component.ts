@@ -13,6 +13,10 @@ export class UserformComponent  {
   user:User= new User('Ram', 20, 'ram@email.com');
   users:any=[];
   constructor(public userService:UserService) { }
+  
+  isSuccessful = false;
+  isUserFormFailed = false;
+  errorMessage = '';
 
   ngOnInit(): void {//called only once during initilization of component
     this.getUsers();
@@ -39,10 +43,16 @@ export class UserformComponent  {
     const observable= this.userService.saveUser(this.user);
     observable.subscribe((response)=>{ //successs Handler
       console.log(response);
+      this.isSuccessful = true;
+      this.isUserFormFailed = false;
     },
-    (error)=>{ // Error Handler
-      alert("something went wrong !");
+    err => {
+      this.errorMessage = err.error.message;
+      this.isUserFormFailed = true;
     }
+    // (error)=>{ // Error Handler
+    //   alert("something went wrong !");
+    // }
     )
   }
 

@@ -1,3 +1,49 @@
-<app-header></app-header>
-<app-userform></app-userform>
+<mat-toolbar>
+  <span class="p-3 mb-2 bg-primary text-white">My Application</span>
+
+  <nav class="navbar navbar-expand centre">
+
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a href="/" class="text-primary" routerLink='header'> Home || </a>
+      </li>
+      <li class="nav-item">
+        <a href="/userform" class="text-primary" routerLink='userform'> User Form || </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="/bookform" class="text-primary" routerLink='bookform'> Book Form || </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a href="/search-form" class="text-primary" routerLink='search-form'> Search Book ||</a>
+      </li>
+      <li class="nav-item">
+        <a href="/login" class="text-primary" routerLink="login">Login</a>
+      </li>
+    </ul>
+
+  </nav>
+</mat-toolbar>
+<hr>
+
+
+<router-outlet></router-outlet>
+<hr>
 <app-footer></app-footer>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <li class="nav-item">
+        <a href="/emailform" class="nav-link" routerLink='emailform'> Email Form</a>
+      </li> -->

@@ -11,21 +11,38 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FooterComponent } from './Footer/footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
+import { EmailformComponent } from './emailform/emailform.component';
+import { BookformComponent } from './bookform/bookform.component';
+import { RouterModule, Routes } from '@angular/router';
+import { SearchFormComponent } from './search-form/search-form.component';
+import { LoginComponent } from './login/login.component';
 
+const routes: Routes=[
+  {path:'userform',component: UserformComponent},
+  {path:'emailform',component: EmailformComponent},
+  {path:'bookform',component: BookformComponent},
+  {path:'search-form',component: SearchFormComponent},
+  {path:'header',component: HeaderComponent},
+  {path:'login',component: LoginComponent},
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     UserformComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    EmailformComponent,
+    BookformComponent,
+    SearchFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, FormsModule, BrowserAnimationsModule,
-    MatButtonModule,MatToolbarModule,HttpClientModule
+    MatButtonModule,MatToolbarModule,HttpClientModule, RouterModule.forRoot(routes)
   ],
   providers: [],
-  bootstrap: [AppComponent]//first component to be created
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

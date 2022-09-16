@@ -1,0 +1,43 @@
+
+<div class="text-center">
+<mat-toolbar>
+   <span class="text-success">Search-Book Application</span>
+</mat-toolbar>
+<p class="text-info">Fill the required details to Search your Book!</p>
+ 
+        <div class="centre">
+          <div class="form-row">
+            <label class="col-sm-2 col-form-label" >Price: </label>
+            <input [(ngModel)]='book.price'/><br>
+         </div>
+         <div class="form-row">
+            <label class="col-sm-2 col-form-label" >Category: </label>
+            <input [(ngModel)]='book.category'/><br>
+         </div>
+         <div class="form-row">
+            <label class="col-sm-2 col-form-label" >Author: </label>
+            <input [(ngModel)]='book.author.name'/><br>
+         </div>
+         <div class="form-row">
+            <label class="col-sm-2 col-form-label" >Publisher: </label>
+            <input [(ngModel)]='book.publisher'/><br>
+         </div>
+
+         <button class="btn btn-outline-success" type="submit" (click)='searchBook(book.category,book.author, book.price,book.publisher)'>Search</button><br>
+          
+
+<!-- </form> -->
+    <div class="text-success"> Check the below Search Results: 
+        <ol>
+        <li *ngFor="let book of books">
+            {{book.title}},{{book.price}}, {{book.price}}, {{book.publisher}}, {{book.publishedDate | date}},
+                {{book.contents}},{{book.imageUrl}}, {{book.active}}, {{book.category}},{{book.author.name}}, 
+                {{book.author.authorEmail}}
+            
+
+        </li>
+    </ol>
+    </div>
+
+</div>
+</div>

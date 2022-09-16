@@ -1,0 +1,81 @@
+<div class="text-center">
+    <mat-toolbar>
+        <span class="text-success">Digital-Book Application</span>
+    </mat-toolbar>
+
+
+    <p class="text-info">Fill the Book Form to Create New Book!</p>
+
+    <div class="form-row">
+        <label class="col-sm-2 col-form-label" for="id">Id: </label>
+        <input [(ngModel)]='book.id' /><br>
+    </div>
+    <div class="form-row">
+        <label class="col-sm-2 col-form-label" for="title">Title: </label>
+        <input [(ngModel)]='book.title' /><br>
+    </div>
+    <div class="form-row">
+        <label class="col-sm-2 col-form-label" for="price">Price: </label>
+        <input [(ngModel)]='book.price' /><br>
+    </div>
+    <div class="form-row">
+        <label class="col-sm-2 col-form-label" for="publisher">Publisher: </label>
+        <input [(ngModel)]='book.publisher' /><br>
+
+    </div>
+    <div class="form-row">
+        <label class="col-sm-2 col-form-label" for="publishedDate">Published Date: </label>
+        <input [(ngModel)]='book.publishedDate' /><br>
+    </div>
+    <div class="form-row">
+        <label class="col-sm-2 col-form-label" for="contents">Contents: </label>
+        <input [(ngModel)]='book.contents' /><br>
+    </div>
+    <div class="form-row">
+        <label class="col-sm-2 col-form-label" for="imageUrl">Image Url: </label>
+        <input [(ngModel)]='book.imageURL' /><br>
+    </div>
+    <div class="form-row">
+        <label class="col-sm-2 col-form-label" for="active">Active: </label>
+        <input [(ngModel)]='book.active' /><br>
+    </div>
+
+    <div class="form-row">
+        <label class="col-sm-2 col-form-label" for="category">Category: </label>
+        <input [(ngModel)]='book.category' /><br>
+    </div>
+    <div class="form-row">
+        <label class="col-sm-2 col-form-label" for="author">Author: </label>
+        <input [(ngModel)]='book.author.id' />
+        <input [(ngModel)]='book.author.name' />
+        <input [(ngModel)]='book.author.authorEmail' />
+        <input [(ngModel)]='book.author.age' /> <br>
+
+    </div>
+    <input class="btn btn-primary" type="submit" (click)='saveBook()'><br>
+
+    <hr>
+
+    <hr>
+    <ol class="text-success">
+
+        <ng-container *ngFor='let book of books'>
+
+            <li *ngIf="book.deleted !=true">
+
+                {{book.title}},{{book.price}}, {{book.price}}, {{book.publisher}}, {{book.publishedDate | date}},
+                {{book.contents}},{{book.imageURL}}, {{book.active}},
+                {{book.category}},{{book.author.name}},{{book.author.age}}
+                {{book.author.authorEmail}} <button (click)='deleteBook(book.id)'>Delete</button>
+            </li>
+        </ng-container>
+
+    </ol>
+    <div class="alert alert-warning" *ngIf="isCreateBookFailed">
+        Create book failed!<br />{{ errorMessage }}
+    </div>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+        Book is successfully created!
+    </div>
+
+</div>
