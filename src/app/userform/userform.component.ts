@@ -12,6 +12,9 @@ import { UserService } from '../user.service';
 export class UserformComponent  {
   user:User= new User('Ram', 20, 'ram@email.com');
   users:any=[];
+
+   displayedColumns: string[] = ['name', 'age', 'email'];
+  dataSource:any= [];
   constructor(public userService:UserService) { }
   
   isSuccessful = false;
@@ -26,6 +29,7 @@ export class UserformComponent  {
     const observable = this.userService.getUsers();
     observable.subscribe(users => {
       this.users = users;
+      this.dataSource= this.users;
     })
   }
   deleteUser(userid: number) {

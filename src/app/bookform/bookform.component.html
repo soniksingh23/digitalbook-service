@@ -1,17 +1,17 @@
 <div class="text-center">
     <mat-toolbar>
         <p class="title-center">
-        <span class="text-success">Book-Form Application</span>
-    </p>
+            <span class="text-success">Book-Form Application</span>
+        </p>
     </mat-toolbar>
 
 
-    <p class="text-info">Fill the Book Form to Create New Book!</p>
+    <p class="text-info">Fill the Book Form to Create New Book:</p>
 
-    <div class="form-row">
+    <!-- <div class="form-row">
         <label class="col-sm-2 col-form-label" for="id">Id: </label>
         <input [(ngModel)]='book.id' /><br>
-    </div>
+    </div> -->
     <div class="form-row">
         <label class="col-sm-2 col-form-label" for="title">Title: </label>
         <input [(ngModel)]='book.title' /><br>
@@ -48,7 +48,7 @@
     </div>
     <div class="form-row">
         <label class="col-sm-2 col-form-label" for="author">Author: </label>
-        <input [(ngModel)]='book.author.id' />
+        <!-- <input [(ngModel)]='book.author.id' /> -->
         <input [(ngModel)]='book.author.name' />
         <input [(ngModel)]='book.author.authorEmail' />
         <input [(ngModel)]='book.author.age' /> <br>
@@ -60,12 +60,15 @@
 
     <hr>
     <ol class="text-success">
+        <p class="text-warning"> Available book Details in Library: </p>
 
+        
+          
         <ng-container *ngFor='let book of books'>
 
             <li *ngIf="book.deleted !=true">
 
-                {{book.title}},{{book.price}}, {{book.price}}, {{book.publisher}}, {{book.publishedDate | date}},
+                {{book.title}},{{book.price}},{{book.publisher}}, {{book.publishedDate | date}},
                 {{book.contents}},{{book.imageURL}}, {{book.active}},
                 {{book.category}},{{book.author.name}},{{book.author.age}}
                 {{book.author.authorEmail}} <button (click)='deleteBook(book.id)'>Delete</button>
@@ -73,6 +76,90 @@
         </ng-container>
 
     </ol>
+    <!-- <li *ngIf="book.deleted !=true"> -->
+        <!-- <ng-container *ngFor='let book of books'> -->
+            <!-- <li *ngIf="book.deleted !=true"> -->
+                       
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
+        <!-- Name Column -->
+        
+        
+           
+        <ng-container matColumnDef="title" style="width: 100%;">
+           <th mat-header-cell *matHeaderCellDef > Title </th>
+           <td mat-cell *matCellDef="let book"> {{book.title | uppercase}} </td>
+        </ng-container>
+       <!-- Symbol Column -->
+         <ng-container matColumnDef="price">
+           <th mat-header-cell *matHeaderCellDef> Price </th>
+           <td mat-cell *matCellDef="let book"> {{book.price}} </td>
+         </ng-container>
+
+         <ng-container matColumnDef="publisher">
+            <th mat-header-cell *matHeaderCellDef> Publisher </th>
+            <td mat-cell *matCellDef="let book"> {{book.publisher}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="publishedDate">
+            <th mat-header-cell *matHeaderCellDef> published Date</th>
+            <td mat-cell *matCellDef="let book"> {{book.publishedDate | date}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="contents">
+            <th mat-header-cell *matHeaderCellDef> Contents </th>
+            <td mat-cell *matCellDef="let book"> {{book.contents}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="imageURL">
+            <th mat-header-cell *matHeaderCellDef> imageURL </th>
+            <td mat-cell *matCellDef="let book"> {{book.imageURL}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="active">
+            <th mat-header-cell *matHeaderCellDef> Active</th>
+            <td mat-cell *matCellDef="let book"> {{book.active}} </td>
+          </ng-container>
+          <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef> Category </th>
+            <td mat-cell *matCellDef="let book"> {{book.category}} </td>
+          </ng-container>
+          
+          <ng-container matColumnDef="authorName">
+            <th mat-header-cell *matHeaderCellDef> Author Name </th>
+            <td mat-cell *matCellDef="let book"> {{book.author.name}} </td>
+          </ng-container>
+          <ng-container matColumnDef="age">
+            <th mat-header-cell *matHeaderCellDef> Author Age </th>
+            <td mat-cell *matCellDef="let book"> {{book.author.age}}
+                <button (click)='deleteBook(book.id)'>Delete</button> </td>
+          </ng-container>
+          <ng-container matColumnDef="authorEmail">
+            <th mat-header-cell *matHeaderCellDef> Author Email </th>
+            <td mat-cell *matCellDef="let book"> {{book.author.authorEmail}} 
+            </td>
+          </ng-container>
+          <!-- <ng-container matColumnDef="deleteUser">
+            <th mat-header-cell *matHeaderCellDef> Author Email: </th>
+            <td mat-cell *matCellDef="let book"><button (click)='deleteBook(book.id)'>Delete</button></td>
+          
+        </ng-container> -->
+          <!-- Weight Column -->
+          <!-- <ng-container matColumnDef="email">
+           <th mat-header-cell *matHeaderCellDef> Email:  </th>
+           <td mat-cell *matCellDef="let book">{{book.email}} 
+           <button (click)='deleteBook(book.id)'>Delete</button></td>
+         </ng-container> -->
+       
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+       
+       
+   </table>
+
+ <!--
+</ng-container> -->
+
+
     <div class="alert alert-warning" *ngIf="isCreateBookFailed">
         Create book failed!<br />{{ errorMessage }}
     </div>

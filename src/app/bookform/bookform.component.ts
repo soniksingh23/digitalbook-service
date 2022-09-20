@@ -18,6 +18,15 @@ export class BookformComponent implements OnInit {
   book:Book= new Book(1, 'The java Today', 550,'Publisher1',this.todayDate,
    'Life History','/abc',true, 'COMIC', false, this.author);
   books:any=[];
+  // {{book.title}},{{book.price}}, {{book.price}}, {{book.publisher}}, {{book.publishedDate | date}},
+  // {{book.contents}},{{book.imageURL}}, {{book.active}},
+  // {{book.category}},{{book.author.name}},{{book.author.age}}
+  // {{book.author.authorEmail}}
+
+  displayedColumns: string[] = ['title', 'price', 'publisher','publishedDate', 
+  'contents', 'imageURL', 'active','category','authorName','authorEmail','age'];
+  dataSource:any= [];
+
   constructor(public bookService:BookService) { }
 
   isSuccessful = false;
@@ -33,6 +42,7 @@ export class BookformComponent implements OnInit {
     const observable = this.bookService.getBooks();
     observable.subscribe(books => {
       this.books = books;
+      this.dataSource= this.books;
     })
   }
   deleteBook(bookid: number) {

@@ -16,6 +16,7 @@ import { BookformComponent } from './bookform/bookform.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { LoginComponent } from './login/login.component';
+import {MatTableModule} from '@angular/material/table';
 
 const routes: Routes=[
   {path:'userform',component: UserformComponent},
@@ -24,6 +25,8 @@ const routes: Routes=[
   {path:'search-form',component: SearchFormComponent},
   {path:'header',component: HeaderComponent},
   {path:'login',component: LoginComponent},
+ 
+
 ]
 
 @NgModule({
@@ -39,7 +42,7 @@ const routes: Routes=[
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, FormsModule, BrowserAnimationsModule,
+    AppRoutingModule, FormsModule, BrowserAnimationsModule,MatTableModule,
     MatButtonModule,MatToolbarModule,HttpClientModule, RouterModule.forRoot(routes)
   ],
   providers: [],
