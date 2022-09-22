@@ -2,11 +2,15 @@
 
     <mat-toolbar>
         <p class="title-center">
-            <span class="text-success">User Form Application</span>
+            <span class="text-success">User Form Application
+            </span>
         </p>
     </mat-toolbar>
     <header></header>
-    <div class="example-container">
+   
+        <img id="profile-img"
+            src="https://img.freepik.com/free-vector/students-studying-textbooks_74855-5294.jpg?w=826&t=st=1663647382~exp=1663647982~hmac=5c457f99982401fdf0ffbc88755730a3e578b0ed2184ca0f79bab727b2a9841b"
+            class="profile-img-card" />
         <!-- <mat-form-field appearance="fill">
             <mat-label>Enter your password</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'">
@@ -14,22 +18,127 @@
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field> -->
-        <p class="text-primary">Fill the Userform : </p>
+        <div class="form-group">
+            <p class="text-primary">Fill the Userform : </p>
+            <div class="form-group">
+                <label for="username">Enter your Username: </label>
+                <input [(ngModel)]='user.name' type="text" required /><br>
+            </div>
+            <div class="form-group">
+                <label for="email">Enter your email: </label>
+                <input type="email" [(ngModel)]='user.email' required /><br>
+            </div>
+            <div class="form-group">
+                <label for="number">Enter your age: </label>
+                <input [(ngModel)]='user.age' required /><br>
+            </div>
+            <div class="form-group">
+                <label for="password">Enter your Password </label>
+                <input required [(ngModel)]='user.password' type="password">
+            </div>
+            <button class="btn btn-primary btn-block" (click)="save()">
+                Register
+            </button>
 
-        <label for="username">Enter your Username: </label>
-        <input [(ngModel)]='user.name' /><br>
-        <label for="email">Enter your email: </label>
-        <input [(ngModel)]='user.email' /><br>
-        <label for="number">Enter your age: </label>
-        <input [(ngModel)]='user.age' /><br>
+
+            </div>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
+            <!-- Name Column -->
+            <ng-container matColumnDef="name" style="width: 100%;">
+                <th mat-header-cell *matHeaderCellDef textAlign='cemtre'> Name :</th>
+                <td mat-cell *matCellDef="let user"> {{user.name | uppercase}} </td>
+            </ng-container>
+
+
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="age">
+                <th mat-header-cell *matHeaderCellDef> Age: </th>
+                <td mat-cell *matCellDef="let user"> {{user.age}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email: </th>
+                <td mat-cell *matCellDef="let user">{{user.email}}
+                    <button (click)='deleteUser(user.id)'>Delete</button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="password" [style.display]="'none'">
+                <th mat-header-cell *matHeaderCellDef [style.display]="'none'"> Password</th>
+                <td mat-cell *matCellDef="let user" [style.display]="'none'">{{user.password}}
+                   
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+        <!-- </ol>  -->
+
+
+
+
+
+        <div class="alert alert-warning" *ngIf="isUserFormFailed">
+            User creation failed!<br />{{ errorMessage }}
+        </div>
+        <div class="alert alert-success" *ngIf="isSuccessful">
+            User is created successfully !
+        </div>
+
+        <footer></footer>
+</div>
+
+<!-- <ol class="text-success">
+    <li *ngFor='let user of users'>
+
+       
+          
+        {{user.name | uppercase}}, {{user.email}},{{user.age}} <button (click)='deleteUser(user.id)'>Delete</button>
+    
+    </li>
+</ol>  -->
+
+
+
+
 
         <!-- <mat-label>Enter your password</mat-label>
     <input matInput [type]="hide ? 'password' : 'text'"> -->
+        <!-- <input [(ngModel)]='user.password' /><br> -->
+        <!-- <input type="submit" (click)="save()"><br> -->
+        <!-- <form  name="form" >
+            <div class="form-group">
+                
+                <p class="text-primary">Fill the Userform : </p>
+                <label for="username">Enter your Username: </label>
+                <input [(ngModel)]='user.name' /><br>
+                <label for="email">Enter your email: </label>
+                <input [(ngModel)]='user.email' /><br>
+                <label for="number">Enter your age: </label>
+                <input [(ngModel)]='user.age' /><br>
 
-        <input type="submit" (click)="save()"><br>
+            </div>
+            <div class="form-group">
+                <label for="number">Enter your password : </label>
+                <input [(ngModel)]='user.age' /><br>
+
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="save()">
+                    Register
+                </button>
+            </div>
+        </form>
+
+         -->
 
         <!-- <button mat-raised-button color="primary" >submit</button> -->
-         <!-- <ol class="text-success">
+        <!-- <ol class="text-success">
         <li *ngFor='let user of users'>
 
            
@@ -38,46 +147,23 @@
         
         </li>
     </ol>  -->
-<!-- <ol class="text-success"> -->
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
-         <!-- Name Column -->
-         <ng-container matColumnDef="name" style="width: 100%;">
-            <th mat-header-cell *matHeaderCellDef textAlign='cemtre'> Name :</th>
-            <td mat-cell *matCellDef="let user"> {{user.name | uppercase}} </td>
-          </ng-container>
-        
-         
-        
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="age">
-            <th mat-header-cell *matHeaderCellDef> Age: </th>
-            <td mat-cell *matCellDef="let user"> {{user.age}} </td>
-          </ng-container>
+        <!-- <ol class="text-success"> -->
 
-           <!-- Weight Column -->
-           <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef> Email:  </th>
-            <td mat-cell *matCellDef="let user">{{user.email}} 
-            <button (click)='deleteUser(user.id)'>Delete</button></td>
-          </ng-container>
-        
-           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
-
-    </table>
-   
-<!-- </ol>  -->
-    </div>
-    
-
-
-
-    <div class="alert alert-warning" *ngIf="isUserFormFailed">
-        User creation failed!<br />{{ errorMessage }}
-    </div>
-    <div class="alert alert-success" *ngIf="isSuccessful">
-        User is created successfully !
-    </div>
-
-    <footer></footer>
-</div>
+        <!-- 
+<div>
+    <p class="text-primary">Fill the Userform : </p>
+                <label for="username">Enter your Username: </label>
+                <input [(ngModel)]='user.name' /><br>
+                <label for="email">Enter your email: </label>
+                <input [(ngModel)]='user.email' /><br>
+                <label for="number">Enter your age: </label>
+                <input [(ngModel)]='user.age' /><br>
+                
+                <label for="password">Enter your Password </label>
+                <input required [(ngModel)]='user.password' type="password"> <br>
+                
+                    <button class="btn btn-primary btn-block" (click)="save()">
+                        Register
+                    </button>
+                
+</div> -->

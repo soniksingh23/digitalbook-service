@@ -17,6 +17,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { LoginComponent } from './login/login.component';
 import {MatTableModule} from '@angular/material/table';
+import { NewregisterformComponent } from './newregisterform/newregisterform.component';
 
 const routes: Routes=[
   {path:'userform',component: UserformComponent},
@@ -25,7 +26,8 @@ const routes: Routes=[
   {path:'search-form',component: SearchFormComponent},
   {path:'header',component: HeaderComponent},
   {path:'login',component: LoginComponent},
- 
+  {path:'newregisterform',component: NewregisterformComponent},
+  
 
 ]
 
@@ -38,7 +40,9 @@ const routes: Routes=[
     EmailformComponent,
     BookformComponent,
     SearchFormComponent,
-    LoginComponent
+    LoginComponent,
+    NewregisterformComponent
+    
   ],
   imports: [
     BrowserModule,

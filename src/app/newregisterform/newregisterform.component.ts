@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import User from '../entity/User';
 import { UserService } from '../user.service';
-
-
-
 @Component({
-  selector: 'app-userform',
-  templateUrl: './userform.component.html',
-  styleUrls: ['./userform.component.scss']
+  selector: 'app-newregisterform',
+  templateUrl: './newregisterform.component.html',
+  styleUrls: ['./newregisterform.component.scss']
 })
-export class UserformComponent  {
-  user:User= new User('ABC', 20, 'abc@email.com','****67');
+export class NewregisterformComponent implements OnInit {
+  user:User= new User('ABC', 20, 'abc@gmail.com','****67');
   users:any=[];
 
    displayedColumns: string[] = ['name', 'age', 'email', 'password'];
@@ -61,4 +58,3 @@ export class UserformComponent  {
   }
 
 }
-

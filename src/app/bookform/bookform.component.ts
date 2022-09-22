@@ -50,7 +50,8 @@ export class BookformComponent implements OnInit {
     const observable = this.bookService.deleteBook(bookid);
     observable.subscribe(response => {
       this.getBooks();
-      //isNotDeleted=1;
+     // this.isNotDeleted=1;
+      //this.dataSource= this.books;
       
     })
     

@@ -28,15 +28,23 @@
          (click)='searchBook(book.category,book.author, book.price,book.publisher)'>Search</button><br>
 
       <div class="text-success"> Check the below Search Results:
-         <ol>
-            <li *ngFor="let book of books">
+         
+         <ol >
+            <ng-container *ngFor='let book of books'>
+
+            <li *ngIf="book.deleted !=true">
+               
                {{book.title}},{{book.price}}, {{book.price}}, {{book.publisher}}, {{book.publishedDate | date}},
-               {{book.contents}},{{book.imageUrl}}, {{book.active}}, {{book.category}},{{book.author.name}},
+               {{book.contents}},{{book.imageURL}}, {{book.active}}, {{book.category}},{{book.author.name}},
                {{book.author.authorEmail}}
 
-
+               
             </li>
+         </ng-container>
          </ol>
+      </div>
+      <div class="alert alert-warning" *ngIf="isSearchBookFailed">
+         Search book failed!<br />{{ errorMessage }}
       </div>
 
    </div>
