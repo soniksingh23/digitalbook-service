@@ -60,34 +60,104 @@
         <li class="nav-item">
           <a href="/" class="text-primary" routerLink='header'> Home || </a>
         </li>
-
-        <li class="nav-item">
-          <a href="/bookform" class="text-primary" routerLink='bookform'> Book Form || </a>
+        <!-- ROLE_READER -->
+        <!-- <li class="nav-item"  *ngIf="book.deleted !=true" > -->
+        <li class="nav-item" *ngIf="!showReaderBoard">
+          <a href="/bookform" class="text-primary" routerLink='bookform' > Book Form || </a>
         </li>
         <li class="nav-item">
-          <a href="/search-form" class="text-primary" routerLink='search-form'> Search Book ||</a>
+          <a href="/search-form" class="text-primary" routerLink='search-form' > Search Book ||</a>
         </li>
         <li class="nav-item">
           <!-- <a href="/profile" class="text-primary" routerLink="profile">{{ username }} ||</a> -->
           <a href="/profile" class="text-primary" routerLink="profile">MyProfile ||</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="showAdminBoard">
+          <a href="/board-admin" class="text-primary" routerLink='board-admin' > Admin Board || </a>
+        </li>
+        <li class="nav-item navbar-right" >
           <a href class="text-primary" (click)="logout()">LogOut</a>
         </li>
+       
     </ul>
 
+
+    <!-- <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/home" class="nav-link" routerLink="home">Home </a>
+      </li>
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+      </li>
+      <li class="nav-item" *ngIf="showModeratorBoard">
+        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+      </li>
+      <li class="nav-item">
+        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+      </li>
+    </ul> -->
 
 
 
   </nav>
+
+
 </mat-toolbar>
+<!-- 
+ <nav class="navbar navbar-light bg-light">
+  <div class="d-flex flex-row bd-highlight mb-3" id="navbar-right">
+    <div class="p-2 bd-highlight">
+      <a href="/" class="text-primary" routerLink='header'> Home || </a>
+    </div>
+    <div class="p-2 bd-highlight" id="navbar-right">
+      <a href="/login" class="text-primary" routerLink="login">Login ||</a>
+    </div>
+    <div class="p-2 bd-highlight" id="navbar-right">
+      <a href="/newregisterform" class="text-primary" routerLink="newregisterform">Sign Up </a>
+    </div>
+  </div>
+
+ <div class="d-flex flex-row-reverse bd-highlight"  *ngIf="isLoggedIn" > 
+    <div class="d-flex flex-row-reverse bd-highlight"  >
+      <div class="p-2 bd-highlight">
+        <a href="/" class="text-primary" routerLink='header'> Home || </a>
+      </div>
+      <div class="p-2 bd-highlight">
+        <a href="/bookform" class="text-primary" routerLink='bookform'> Book Form || </a>
+      </div>
+      <div class="p-2 bd-highlight" id="navbar-right">
+        <a href="/search-form" class="text-primary" routerLink='search-form'> Search Book ||</a>
+      </div>
+      <div class="p-2 bd-highlight" id="navbar-right">
+      <a href="/profile" class="text-primary" routerLink="profile">MyProfile ||</a>
+      </div>
+      <div class="p-2 bd-highlight" id="navbar-right">
+        <a href class="text-primary" (click)="logout()">LogOut</a>
+      </div>
+
+
+  </div> 
+
+</nav> -->
+<!-- <div class="d-flex flex-row bd-highlight mb-3">
+  <div class="p-2 bd-highlight">Flex item 1</div>
+  <div class="p-2 bd-highlight">Flex item 2</div>
+  <div class="p-2 bd-highlight">Flex item 3</div>
+</div>
+<div class="d-flex flex-row-reverse bd-highlight">
+  <div class="p-2 bd-highlight">Flex item 1</div>
+  <div class="p-2 bd-highlight">Flex item 2</div>
+  <div class="p-2 bd-highlight">Flex item 3</div>
+</div> -->
+
+
 <hr>
 <div class="image">
   <router-outlet></router-outlet>
  
 <div>
-<hr>
-<app-footer></app-footer>
+<!-- <hr> -->
+<!-- <app-footer></app-footer> -->
 
 
 

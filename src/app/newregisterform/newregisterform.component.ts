@@ -13,7 +13,7 @@ export class NewregisterformComponent implements OnInit {
   users:Users= new Users('ABC',  '\"role\"\: \[\"author\"\]', 'abc@gmail.com','****67');
   user:any=[];
   //roles: any=[];
-
+  userData:any=[];
   roles: string[] = [];
   displayedColumns: string[] = ['name', 'roles[]', 'email', 'password'];
   dataSource:any= [];
@@ -44,10 +44,19 @@ export class NewregisterformComponent implements OnInit {
     })
     
   }
+  convertToApiData(userData: { roles: any; }){
+    return {
+      ...userData, 
+      role: [userData.roles]
+    }
+  }
   save(){
     console.log("User Saved in save()");
     //Ajax call
-    const observable= this.usersService.saveUser(this.users);
+    debugger;
+
+   this.userData= this.convertToApiData(this.users);
+    const observable= this.usersService.saveUser(this.userData);
     observable.subscribe((response)=>{ //successs Handler
       console.log(response);
       this.isSuccessful = true;

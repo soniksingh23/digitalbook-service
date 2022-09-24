@@ -13,6 +13,8 @@ export class AppComponent {
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
+  showReaderBoard = false;
+  showAuthorBoard = false;
   username?: string;
  // title: any;
 
@@ -29,6 +31,9 @@ export class AppComponent {
 
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+
+      this.showReaderBoard = this.roles.includes('ROLE_READER');
+      this.showAuthorBoard = this.roles.includes('ROLE_AUTHOR');
 
       this.username = user.username;
     }

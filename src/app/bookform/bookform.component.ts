@@ -14,7 +14,7 @@ import { BookService } from '../service/book.service';
 export class BookformComponent implements OnInit {
 
   todayDate:Date= new Date();
-  author: Author= new Author( 3,"Smith","Smith@gmail.com", 26);
+  author: Author= new Author( "Smith","Smith@gmail.com", 26);
   //reader: Reader = new Reader( 3,"Smith","Smith@gmail.com", 26);
   book:Book= new Book(1, 'The java Today', 550,'Publisher1',this.todayDate,
    'Life History','/abc',true, 'COMIC', false, this.author);
@@ -25,7 +25,7 @@ export class BookformComponent implements OnInit {
   // {{book.author.authorEmail}}
 
   displayedColumns: string[] = ['title', 'price', 'publisher','publishedDate', 
-  'contents', 'imageURL', 'active','category','authorName','authorEmail','age'];
+  'contents', 'imageURL', 'active','category','authorName','authorEmail','age','action'];
   dataSource:any= [];
 
   constructor(public bookService:BookService) { }
@@ -41,9 +41,10 @@ export class BookformComponent implements OnInit {
   }
   private getBooks() {
     const observable = this.bookService.getBooks();
-    observable.subscribe(books => {
-      this.books = books;
-      this.dataSource= this.books;
+    
+    observable.subscribe(bookList => {
+      this.books = bookList;
+      this.dataSource= this.books.filter((item: { deleted: boolean; })=>item.deleted!=true);  
     })
   }
   deleteBook(bookid: number) {

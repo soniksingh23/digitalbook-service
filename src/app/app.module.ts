@@ -33,7 +33,7 @@ const routes: Routes=[
   {path:'login',component: LoginComponent},
   {path:'newregisterform',component: NewregisterformComponent},
   {path:'profile',component: ProfileComponent},
-  
+  {path:'board-admin',component: BoardAdminComponent},
 
 ]
 

@@ -9,7 +9,7 @@ import { BookService } from '../service/book.service';
 })
 export class SearchFormComponent implements OnInit {
   todayDate:Date= new Date();
-  author: Author= new Author( 3,"Smith","Smith@gmail.com", 26);
+  author: Author= new Author( "Smith","Smith@gmail.com", 26);
   errorMessage = '';
   isNotDeleted = 0;
   isSearchBookFailed = false;
@@ -34,7 +34,8 @@ export class SearchFormComponent implements OnInit {
     observable.subscribe(books => {
       console.log(books);
       this.books = books;
-      this.dataSource= this.books;
+     // this.dataSource= this.books;
+     this.dataSource= this.books.filter((item: { deleted: boolean; })=>item.deleted!=true);  
       // this.getBooks();
     })
   }
