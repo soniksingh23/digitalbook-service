@@ -13,6 +13,13 @@ export class SearchFormComponent implements OnInit {
   errorMessage = '';
   isNotDeleted = 0;
   isSearchBookFailed = false;
+
+  
+  displayedColumns: string[] = ['title', 'price', 'publisher','publishedDate', 
+  'contents', 'imageURL', 'active','category','authorName','authorEmail','age'];
+  dataSource:any= [];
+
+
   book:Book= new Book(1, 'The java Today', 550,'Publisher1',this.todayDate,
    'Life History','abc',true, 'COMIC',false, this.author);
   books:any=[];
@@ -27,6 +34,7 @@ export class SearchFormComponent implements OnInit {
     observable.subscribe(books => {
       console.log(books);
       this.books = books;
+      this.dataSource= this.books;
       // this.getBooks();
     })
   }

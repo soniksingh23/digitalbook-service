@@ -1,22 +1,24 @@
-<div class="container" *ngIf="currentUser; else loggedOut">
-    <header class="jumbotron">
-      <h3>
+<div class="container " *ngIf="currentUser; else loggedOut">
+    <header class="font-bold">
+      <h3 style="color:white">
         <strong>Username: </strong> {{ currentUser.username }}
         <!-- <strong>{{ currentUser.username }}</strong> Profile -->
       </h3>
     </header>
-    <p>
+    <p style="color:white">
       <strong>Token:</strong>
       {{ currentUser.accessToken.substring(0, 20) }} ...
       {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
     </p>
-    <p>
+    <p style="color:white">
       <strong>Email:</strong>
       {{ currentUser.email }}
     </p>
-    <strong>Roles:</strong>
+    <p style="color:white">
+     <strong>Roles:</strong>
+    </p>
     <ul>
-      <li *ngFor="let role of currentUser.roles">
+      <li *ngFor="let role of currentUser.roles" style="color:white">
         {{ role }}
       </li>
     </ul>
