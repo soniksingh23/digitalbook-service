@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Author from '../entity/Author';
 import Book from '../entity/Book';
+import Reader from '../entity/Reader';
 import { BookService } from '../service/book.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class BookformComponent implements OnInit {
 
   todayDate:Date= new Date();
   author: Author= new Author( 3,"Smith","Smith@gmail.com", 26);
-
+  //reader: Reader = new Reader( 3,"Smith","Smith@gmail.com", 26);
   book:Book= new Book(1, 'The java Today', 550,'Publisher1',this.todayDate,
    'Life History','/abc',true, 'COMIC', false, this.author);
   books:any=[];

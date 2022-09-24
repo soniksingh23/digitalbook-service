@@ -7,29 +7,31 @@
    <p class="text-info">Fill the required details to Search your Book!</p>
 
    <div class="centre">
+
       <div class="form-row">
-         <label class="col-sm-2 col-form-label">Price: </label>
+         <label class="col-sm-2 col-form-label font-bold" style="color:white">Price: </label>
+         <!-- <b class="col-sm-2 col-form-label">Price: </b> -->
          <input [(ngModel)]='book.price' /><br>
       </div>
       <div class="form-row">
-         <label class="col-sm-2 col-form-label">Category: </label>
+         <label class="col-sm-2 col-form-label font-bold" style="color:white">Category: </label>
          <input [(ngModel)]='book.category' /><br>
       </div>
       <div class="form-row">
-         <label class="col-sm-2 col-form-label">Author: </label>
+         <label class="col-sm-2 col-form-label font-bold" style="color:white">Author: </label>
          <input [(ngModel)]='book.author.name' /><br>
       </div>
       <div class="form-row">
-         <label class="col-sm-2 col-form-label">Publisher: </label>
+         <label class="col-sm-2 col-form-label font-bold" style="color:white">Publisher: </label>
          <input [(ngModel)]='book.publisher' /><br>
       </div>
 
       <button class="btn btn-outline-success" type="submit"
-         (click)='searchBook(book.category,book.author, book.price,book.publisher)'>Search</button><br>
+         (click)='searchBook(book.category,book.author, book.price,book.publisher)' style="color:white">Search</button><br>
 
-      <div class="text-success"> Check the below Search Results:
+      <div class="text-warning font-bold"> Check the below Search Results:
          
-         <ol >
+         <ol class="text-success font-bold">
             <ng-container *ngFor='let book of books'>
 
             <li *ngIf="book.deleted !=true">
@@ -46,6 +48,10 @@
       <div class="alert alert-warning" *ngIf="isSearchBookFailed">
          Search book failed!<br />{{ errorMessage }}
       </div>
+
+      <ng-container matColumnDef="noRecord">
+         <td mat-footer-cell *matFooterCellDef>No records found.</td>
+   </ng-container>
 
    </div>
 </div>

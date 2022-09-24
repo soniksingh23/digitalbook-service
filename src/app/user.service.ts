@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import User from './entity/User';
 
 const API_URL="http://localhost:8080/user/";
+
 @Injectable({
   providedIn: 'root'
 })

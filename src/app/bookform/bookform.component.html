@@ -5,49 +5,50 @@
         </p>
     </mat-toolbar>
 
-
-    <p class="text-info">Fill the Book Form to Create New Book:</p>
+<div class="image blur">
+    <p class="text-info font-bold">Fill the Book Form to Create New Book:</p>
 
     <!-- <div class="form-row">
         <label class="col-sm-2 col-form-label" for="id">Id: </label>
         <input [(ngModel)]='book.id' /><br>
     </div> -->
+    
     <div class="form-row">
-        <label class="col-sm-2 col-form-label" for="title">Title: </label>
+        <label class="col-sm-2 col-form-label font-bold" for="title" style="color:white">Title: </label>
         <input [(ngModel)]='book.title' /><br>
     </div>
     <div class="form-row">
-        <label class="col-sm-2 col-form-label" for="price">Price: </label>
+        <label class="col-sm-2 col-form-label font-bold" for="price" style="color:white">Price: </label>
         <input [(ngModel)]='book.price' /><br>
     </div>
     <div class="form-row">
-        <label class="col-sm-2 col-form-label" for="publisher">Publisher: </label>
+        <label class="col-sm-2 col-form-label font-bold" for="publisher" style="color:white">Publisher: </label>
         <input [(ngModel)]='book.publisher' /><br>
 
     </div>
     <div class="form-row">
-        <label class="col-sm-2 col-form-label" for="publishedDate">Published Date: </label>
+        <label class="col-sm-2 col-form-label font-bold" for="publishedDate" style="color:white">Published Date: </label>
         <input [(ngModel)]='book.publishedDate' /><br>
     </div>
     <div class="form-row">
-        <label class="col-sm-2 col-form-label" for="contents">Contents: </label>
+        <label class="col-sm-2 col-form-label font-bold" for="contents" style="color:white">Contents: </label>
         <input [(ngModel)]='book.contents' /><br>
     </div>
     <div class="form-row">
-        <label class="col-sm-2 col-form-label" for="imageUrl">Image Url: </label>
+        <label class="col-sm-2 col-form-label font-bold" for="imageUrl" style="color:white">Image Url: </label>
         <input [(ngModel)]='book.imageURL' /><br>
     </div>
     <div class="form-row">
-        <label class="col-sm-2 col-form-label" for="active">Active: </label>
+        <label class="col-sm-2 col-form-label font-bold" for="active" style="color:white">Active: </label>
         <input [(ngModel)]='book.active' /><br>
     </div>
 
     <div class="form-row">
-        <label class="col-sm-2 col-form-label" for="category">Category: </label>
+        <label class="col-sm-2 col-form-label font-bold" for="category" style="color:white">Category: </label>
         <input [(ngModel)]='book.category' /><br>
     </div>
     <div class="form-row">
-        <label class="col-sm-2 col-form-label" for="author">Author: </label>
+        <label class="col-sm-2 col-form-label font-bold" for="author" style="color:white">Author: </label>
         <!-- <input [(ngModel)]='book.author.id' /> -->
         <input [(ngModel)]='book.author.name' />
         <input [(ngModel)]='book.author.authorEmail' />
@@ -60,11 +61,11 @@
 
     <hr>
     <ol class="text-success">
-        <p class="text-warning"> Available book Details in Library: </p>
+        <p class="text-warning font-bold"> Available book Details in Library: </p>
 
         
           
-        <ng-container *ngFor='let book of books'>
+        <!-- <ng-container *ngFor='let book of books'>
 
             <li *ngIf="book.deleted !=true">
 
@@ -73,13 +74,13 @@
                 {{book.category}},{{book.author.name}},{{book.author.age}}
                 {{book.author.authorEmail}} <button (click)='deleteBook(book.id)'>Delete</button>
             </li>
-        </ng-container>
+        </ng-container> -->
 
     </ol>
     <!-- <li *ngIf="book.deleted !=true"> -->
         <!-- <ng-container *ngFor='let book of books'> -->
             <!-- <li *ngIf="book.deleted !=true"> -->
-              <ng-container *ngFor='let book of books'>       
+              <!-- <ng-container *ngFor='let book of books'>        -->
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
         
 
@@ -189,5 +190,7 @@
     <div class="alert alert-success" *ngIf="isSuccessful">
         Book is successfully created!
     </div>
-  </ng-container>  
+
+  </div>
+  <!-- </ng-container>   -->
 </div>

@@ -1,37 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import User from '../entity/User';
-import { UserService } from '../user.service';
+
+import Users from '../entity/Users';
+import { UsersService } from '../service/users.service';
 @Component({
   selector: 'app-newregisterform',
   templateUrl: './newregisterform.component.html',
   styleUrls: ['./newregisterform.component.scss']
 })
 export class NewregisterformComponent implements OnInit {
-  user:User= new User('ABC', 20, 'abc@gmail.com','****67');
-  users:any=[];
+  //user:User= new User('ABC', 20, 'abc@gmail.com','****67');
+ // users:Users= new Users('ABC', 'ROLE_ADMIN', 'abc@gmail.com','****67');
+  users:Users= new Users('ABC',  '\"role\"\: \[\"author\"\]', 'abc@gmail.com','****67');
+  user:any=[];
+  //roles: any=[];
 
-   displayedColumns: string[] = ['name', 'age', 'email', 'password'];
+  roles: string[] = [];
+  displayedColumns: string[] = ['name', 'roles[]', 'email', 'password'];
   dataSource:any= [];
-  constructor(public userService:UserService) { }
+  
+  constructor(public usersService:UsersService) { }
   
   isSuccessful = false;
   isUserFormFailed = false;
   errorMessage = '';
 
-  ngOnInit(): void {//called only once during initilization of component
+  ngOnInit(): void {
     this.getUsers();
-    //more logic which needs to run only once
+    
   }
   private getUsers() {
-    const observable = this.userService.getUsers();
-    observable.subscribe(users => {
-      this.users = users;
-      this.dataSource= this.users;
+    const observable = this.usersService.getUsers();
+    observable.subscribe(user => {
+      this.user = user;
+      this.dataSource= this.user;
     })
   }
   deleteUser(userid: number) {
     console.log("deleted");
-    const observable = this.userService.deleteUser(userid);
+    const observable = this.usersService.deleteUser(userid);
     observable.subscribe(response => {
       this.getUsers();
       
@@ -41,7 +47,7 @@ export class NewregisterformComponent implements OnInit {
   save(){
     console.log("User Saved in save()");
     //Ajax call
-    const observable= this.userService.saveUser(this.user);
+    const observable= this.usersService.saveUser(this.users);
     observable.subscribe((response)=>{ //successs Handler
       console.log(response);
       this.isSuccessful = true;

@@ -1,10 +1,12 @@
-<section class="vh-100" style="background-color: #eee;">
-    <div class="container h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
+<div class="image">
+<!-- <section class="vh-100" style="background-color: #c2bbb1;"> -->
+    <!-- <div class="container h-100" style="background-color: #c2bbb1;"> -->
+      <div class="container h-100" >
+      <div class="row d-flex justify-content-center align-items-center h-100" >
         <div class="col-lg-12 col-xl-11">
           <div class="card text-black" style="border-radius: 25px;">
             <div class="card-body p-md-5">
-              <div class="row justify-content-center">
+              <div class="row justify-content-center" style="background-color: #c2bbb1;" >
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
   
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
@@ -14,7 +16,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input [(ngModel)]='user.name'class="form-control" required/>
+                        <input [(ngModel)]='users.username'class="form-control" required/>
                         <label class="form-label" for="username">Enter User Name</label>
                       </div>
                     </div>
@@ -22,8 +24,18 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="email" [(ngModel)]='user.email'  id="form3Example3c" class="form-control" required/>
+                        <input type="email" [(ngModel)]='users.email'  id="form3Example3c" class="form-control" required/>
                         <label class="form-label" for="email">Enter Email</label>
+                        <!-- <label for="email">Enter your  </label>
+                        <input type="email" [(ngModel)]='user.email' required /><br> -->
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="email" [(ngModel)]='users.roles'  id="form3Example3c" class="form-control" required/>
+                        <label class="form-label" for="email">Enter Role</label>
                         <!-- <label for="email">Enter your  </label>
                         <input type="email" [(ngModel)]='user.email' required /><br> -->
                       </div>
@@ -32,7 +44,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="password" [(ngModel)]='user.password' id="form3Example4c" class="form-control" required/>
+                        <input type="password" [(ngModel)]='users.password' id="form3Example4c" class="form-control" required/>
                         <label class="form-label" for="password">Password</label>
                         <!-- <label for="password">Enter your Password </label>
                 <input required [(ngModel)]='user.password' type="password"> -->
@@ -57,18 +69,19 @@
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                       <button type="button" class="btn btn-primary btn-lg"  (click)="save()" >Register</button>
                     </div>
+
+                  
   
                   <!-- </form> -->
   
                 </div>
-                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                <!-- <div class="vertical-center "> -->
+                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 img-center">
                   
                   <img src="https://img.freepik.com/free-vector/students-studying-textbooks_74855-5294.jpg?w=826&t=st=1663647382~exp=1663647982~hmac=5c457f99982401fdf0ffbc88755730a3e578b0ed2184ca0f79bab727b2a9841b"
                     class="img-fluid" alt="Sample image"><br>
-
-                  
-  
-                </div>
+                  </div> 
+               
                  
               </div>
             </div>
@@ -85,4 +98,6 @@
     <div class="alert alert-success" *ngIf="isSuccessful">
         User is registered successfully !
     </div>
-  </section>
+  <!-- </section> -->
+
+</div>

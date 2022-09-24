@@ -1,0 +1,19 @@
+.img-center {
+    background: #fafaf9;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center !important;
+    text-align: center;
+    
+  }
+  
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    // float:right;
+  }

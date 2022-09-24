@@ -18,6 +18,11 @@ import { SearchFormComponent } from './search-form/search-form.component';
 import { LoginComponent } from './login/login.component';
 import {MatTableModule} from '@angular/material/table';
 import { NewregisterformComponent } from './newregisterform/newregisterform.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { BoardAuthorComponent } from './board-author/board-author.component';
+import { BoardUserComponent } from './board-user/board-user.component';
+import { BoardReaderComponent } from './board-reader/board-reader.component';
 
 const routes: Routes=[
   {path:'userform',component: UserformComponent},
@@ -27,6 +32,7 @@ const routes: Routes=[
   {path:'header',component: HeaderComponent},
   {path:'login',component: LoginComponent},
   {path:'newregisterform',component: NewregisterformComponent},
+  {path:'profile',component: ProfileComponent},
   
 
 ]
@@ -41,7 +47,12 @@ const routes: Routes=[
     BookformComponent,
     SearchFormComponent,
     LoginComponent,
-    NewregisterformComponent
+    NewregisterformComponent,
+    ProfileComponent,
+    BoardAdminComponent,
+    BoardAuthorComponent,
+    BoardUserComponent,
+    BoardReaderComponent
     
   ],
   imports: [

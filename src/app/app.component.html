@@ -1,39 +1,91 @@
+
+
 <mat-toolbar>
   <span class="p-3 mb-2 bg-primary text-white">Digital-Book Application</span>
 
   <nav class="navbar navbar-expand centre">
 
+    <!-- <a href="#" class="navbar-brand">bezKoder</a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/home" class="nav-link" routerLink="home">Home </a>
+      </li>
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+      </li>
+      <li class="nav-item" *ngIf="showModeratorBoard">
+        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+      </li>
+      <li class="nav-item">
+        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+      </li>
+    </ul> -->
+
+    <!-- <a href="#" class="navbar-brand">Digital-Book Application</a> -->
+
     <ul class="navbar-nav mr-auto">
 
+      
+      <!-- <li class="nav-item">
+        <a href="/userform" class="text-primary" routerLink='userform'> User Form || </a>
+      </li> -->
+
+      
+    </ul>
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
         <a href="/" class="text-primary" routerLink='header'> Home || </a>
-      </li>
-      <li class="nav-item">
-        <a href="/userform" class="text-primary" routerLink='userform'> User Form || </a>
-      </li>
-
-      <li class="nav-item">
-        <a href="/bookform" class="text-primary" routerLink='bookform'> Book Form || </a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a href="/search-form" class="text-primary" routerLink='search-form'> Search Book ||</a>
       </li>
       <li class="nav-item">
         <a href="/login" class="text-primary" routerLink="login">Login ||</a>
       </li>
       <li class="nav-item">
-        <a href="/newregisterform" class="text-primary" routerLink="newregisterform">New Register Form</a>
+        <a href="/newregisterform" class="text-primary" routerLink="newregisterform">Sign Up </a>
       </li>
     </ul>
+
+
+<!--     
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      </li>
+    </ul> -->
+
+    <!-- <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn"> -->
+      <ul class="navbar-nav ml-auto justify-content-end" *ngIf="isLoggedIn" >
+        <li class="nav-item">
+          <a href="/" class="text-primary" routerLink='header'> Home || </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/bookform" class="text-primary" routerLink='bookform'> Book Form || </a>
+        </li>
+        <li class="nav-item">
+          <a href="/search-form" class="text-primary" routerLink='search-form'> Search Book ||</a>
+        </li>
+        <li class="nav-item">
+          <!-- <a href="/profile" class="text-primary" routerLink="profile">{{ username }} ||</a> -->
+          <a href="/profile" class="text-primary" routerLink="profile">MyProfile ||</a>
+        </li>
+        <li class="nav-item">
+          <a href class="text-primary" (click)="logout()">LogOut</a>
+        </li>
+    </ul>
+
+
+
 
   </nav>
 </mat-toolbar>
 <hr>
-
-
-<router-outlet></router-outlet>
+<div class="image">
+  <router-outlet></router-outlet>
+ 
+<div>
 <hr>
 <app-footer></app-footer>
 
