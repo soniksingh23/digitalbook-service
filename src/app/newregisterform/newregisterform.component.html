@@ -17,7 +17,7 @@
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="username"  style="color:white">Enter User Name*</label>
-                        <input [(ngModel)]='users.username'class="form-control" required/>
+                        <input [(ngModel)]='users.username'class="form-control" required placeholder="User Name"/>
                        
                       </div>
                     </div>
@@ -26,7 +26,7 @@
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="email"  style="color:white">Enter Email*</label>
-                        <input type="email" [(ngModel)]='users.email'  id="form3Example3c" class="form-control" required/>
+                        <input type="email" [(ngModel)]='users.email'  id="form3Example3c" class="form-control" required placeholder="someone@email.com"/>
                         
                         <!-- <label for="email">Enter your  </label>
                         <input type="email" [(ngModel)]='user.email' required /><br> -->
@@ -36,13 +36,52 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" for="email"  style="color:white">Enter Role*</label>
-                        <input type="email" [(ngModel)]='users.roles'  id="form3Example3c" class="form-control" required/>
-                        
-                        <!-- <label for="email">Enter your  </label>
-                        <input type="email" [(ngModel)]='user.email' required /><br> -->
+                        <label class="form-label" for="email"  style="color:white">Enter Role</label>
+                        <input class="selectedRoleType" type="email" [(ngModel)]='users.roles'  id="form3Example3c" class="form-control" required placeholder="author or reader" />
+                        <!-- <option [value]="roleType" *ngFor="let roleType of roleTypes"  >
+                          {{ user[roleType] }}</option> -->
+                        <!-- <select type="role" [(ngModel)]='users.roles' class="form-control" required >
+                          <option [value]="roleType" *ngFor="let roleType of roleTypes" >
+                            {{ user[roleType] }}</option>
+                        </select>
+                         -->
                       </div>
                     </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                       <label class="form-label" for="role"  style="color:white">Select a Role
+                       <!-- <option ng-repeat="x in cars" value="{{x.model}}">{{x.model}}</option> -->
+                          <!-- <select ng-model="selectedRole"> -->
+                            <!-- <div type="user_roles" (ngModel)]='users.roles' class="form-control" required> -->
+                            <select  [(ngModel)]='users.roles' id="user_roles" required >
+                              
+                              <!-- <option ng-repeat="user in users" value="{{user.Roles}}"> {{user.Roles}} </option> -->
+                              
+                              <option [value]="roleType" *ngFor="let roleType of roleTypes"  >
+                                {{ user[roleType] }} </option>
+                               <!-- <option [value]="{{user.Roles}}" *ngFor="let role of roles">{{ user.Roles }}</option> -->
+                            </select> 
+                          <!-- </div> -->
+                        </label>
+                            <!-- <p>You selected: {{selectedRole}} </p> -->
+                           
+                          
+                      </div>
+
+                      <!-- <ng-container *ngFor='let roles of roles'>
+                        {{roles}}</ng-container> -->
+                         
+                    </div>
+
+
+                   
+          
+                    
+
+
+
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>

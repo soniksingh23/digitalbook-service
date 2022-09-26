@@ -1,88 +1,223 @@
 <div class="text-center">
-    <mat-toolbar>
-        <div class="title-center">
-            <div class="text-success">
-              <p class="text-info font-bold">Fill the Book Form to Create New Book !!</p>
-            </div>
-        </div>
-    </mat-toolbar>
+  <mat-toolbar>
+    <div class="title-center">
+      <div class="text-success">
+        <p class="text-info font-bold">Fill the Book Form to Create New Book !!</p>
+      </div>
+    </div>
+  </mat-toolbar>
 
-<div class="image blur">
+  <div class="image blur">
     <!-- <p class="text-info font-bold">Fill the Book Form to Create New Book:</p> -->
 
     <!-- <div class="form-row">
         <label class="col-sm-2 col-form-label" for="id">Id: </label>
         <input [(ngModel)]='book.id' /><br>
     </div> -->
-    <label class="col-sm-2 col-form-label font-bold" for="author" style="color:white">* * * Enter Book Details:* * * </label>
-    <div class="form-row">
-        <label class="col-sm-2 col-form-label font-bold" for="title" style="color:white" >Title: </label>
-        <input [(ngModel)]='book.title' placeholder="Life History" required/>
+    <div class="form-group">
+      <label class="col-sm-2 col-form-label font-bold" for="author" style="color:white">* * * Enter Book Details:* * *
+      </label>
+      <!-- <div class="form-row">
+        <label class="col-sm-2 col-form-label font-bold" for="title" style="color:white">Title: </label>
+        <input [(ngModel)]='book.title' placeholder="Life History" required />
+        
+        <br>
+      </div> -->
+      <!-- Testing starts-->
+      <div class="form-row">
+        <label class="col-sm-2 col-form-label font-bold" for="title" style="color:white">Title1: </label>
+        <input [(ngModel)]='book.title' placeholder="Life History" id="title" name="title" required minlength="3"
+          appForbiddenName="bob" required #title="ngModel" />
         <!-- <input placeholder="Life History" /> -->
         <br>
-    </div>
-    <div class="form-row">
-        <label class="col-sm-2 col-form-label font-bold" for="price" style="color:white" >Price: </label>
-        <input [(ngModel)]='book.price' placeholder="1000" required/>
-        <!-- <input placeholder="1000" /> -->
+        
+        <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert">
+
+          <div *ngIf="title.errors?.['required']" style="color:rgb(235, 232, 75)">
+            Title is required*.
+          </div>
+          <div *ngIf="title.errors?.['minlength']" style="color:rgb(235, 232, 75)">
+            Title must be at least 3 characters long.
+          </div>
+          <div *ngIf="title.errors?.['forbiddenName']" style="color:rgb(235, 232, 75)">
+            Title cannot be Bob.
+          </div>
+
+        </div>
+      </div>
+ <!-- Testing ends-->
+      <div class="form-row">
+        <label class="col-sm-2 col-form-label font-bold" for="price" style="color:white">Price: </label>
+        <input [(ngModel)]='book.price' placeholder="1000" id="price" name="price" required minlength="3"
+        appForbiddenName="bob" required #price="ngModel" />
+       
         <br>
-    </div>
-    <div class="form-row">
-        <label class="col-sm-2 col-form-label font-bold" for="publisher" style="color:white" >Publisher: </label>
-        <input [(ngModel)]='book.publisher' placeholder="New Publisher" required />
+        <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert">
+
+          <div *ngIf="price.errors?.['required']" style="color:rgb(235, 232, 75)">
+            Price is required*.
+          </div>
+          <div *ngIf="price.errors?.['minlength']" style="color:rgb(235, 232, 75)">
+            Price must be at least 3 characters long.
+          </div>
+          <div *ngIf="price.errors?.['forbiddenName']" style="color:rgb(235, 232, 75)">
+            price cannot be Bob.
+          </div>
+
+        </div>
+
+
+      </div>
+      <div class="form-row">
+        <label class="col-sm-2 col-form-label font-bold" for="publisher" style="color:white">Publisher: </label>
+        <input [(ngModel)]='book.publisher' placeholder="New Publisher"  id="publisher"name="publisher" required minlength="3"
+        appForbiddenName="bob" required #publisher="ngModel"/>
         <!-- <input placeholder="New Publisher" /> -->
         <br>
+        <div *ngIf="publisher.invalid && (publisher.dirty || publisher.touched)" class="alert">
 
-    </div>
-    <div class="form-row">
-        <label class="col-sm-2 col-form-label font-bold" for="publishedDate" style="color:white" >Published Date: </label>
+          <div *ngIf="publisher.errors?.['required']" style="color:rgb(235, 232, 75)">
+            publisher is required*.
+          </div>
+          <div *ngIf="publisher.errors?.['minlength']" style="color:rgb(235, 232, 75)">
+            publisher must be at least 3 characters long.
+          </div>
+          <div *ngIf="publisher.errors?.['forbiddenName']" style="color:rgb(235, 232, 75)">
+            publisher cannot be Bob.
+          </div>
+
+        </div>
+
+      </div>
+      <div class="form-row">
+        <label class="col-sm-2 col-form-label font-bold" for="publishedDate" style="color:white">Published Date:
+        </label>
         <input [(ngModel)]='book.publishedDate' placeholder="Date" required /><br>
-    </div>
-    <div class="form-row">
-        <label class="col-sm-2 col-form-label font-bold" for="contents" style="color:white" >Contents: </label>
-        <input [(ngModel)]='book.contents' placeholder="contents " required />
+      </div>
+      <div class="form-row">
+        <label class="col-sm-2 col-form-label font-bold" for="contents" style="color:white">Contents: </label>
+        <input [(ngModel)]='book.contents' placeholder="contents " id="contents"name="contents" required minlength="3"
+        appForbiddenName="bob" required #contents="ngModel" />
         <!-- <input placeholder="contents " /> -->
         <br>
-    </div>
-    <div class="form-row">
+        <div *ngIf="contents.invalid && (contents.dirty || contents.touched)" class="alert">
+
+          <div *ngIf="contents.errors?.['required']" style="color:rgb(235, 232, 75)">
+            contents is required*.
+          </div>
+          <div *ngIf="contents.errors?.['minlength']" style="color:rgb(235, 232, 75)">
+            contents must be at least 3 characters long.
+          </div>
+          <div *ngIf="contents.errors?.['forbiddenName']" style="color:rgb(235, 232, 75)">
+            contents cannot be Bob.
+          </div>
+
+      </div>
+      <div class="form-row">
         <label class="col-sm-2 col-form-label font-bold" for="imageUrl" style="color:white">Image Url: </label>
-        <input [(ngModel)]='book.imageURL' placeholder="/img " required/>
+        <input [(ngModel)]='book.imageURL' placeholder="/img " required />
         <!-- <input placeholder="/img " /> -->
         <br>
-    </div>
-    <div class="form-row">
+      </div>
+      <div class="form-row">
         <label class="col-sm-2 col-form-label font-bold" for="active" style="color:white">Active: </label>
-        <input [(ngModel)]='book.active' placeholder="true/false " required/>
+        <input [(ngModel)]='book.active' placeholder="true/false " required />
         <!-- <input placeholder="true/boolean " /> -->
         <br>
-    </div>
+      </div>
 
-    <div class="form-row">
+      <div class="form-row">
         <label class="col-sm-2 col-form-label font-bold" for="category" style="color:white">Category: </label>
-        <input [(ngModel)]='book.category' placeholder="COMIC" required/>
+        <input [(ngModel)]='book.category' placeholder="COMIC" id="category"name="category" required minlength="3"
+        appForbiddenName="bob" required #category="ngModel"  />
         <!-- <input  placeholder="COMIC" /> -->
 
         <br>
-    </div>
-    <div class="form-row">
-        <label class="col-sm-2 col-form-label font-bold" for="author" style="color:white">* * * Enter Author Details:* * * </label>
+        <div *ngIf="category.invalid && (category.dirty || category.touched)" class="alert">
+
+          <div *ngIf="category.errors?.['required']" style="color:rgb(235, 232, 75)">
+            category is required*.
+          </div>
+          <div *ngIf="category.errors?.['minlength']" style="color:rgb(235, 232, 75)">
+            category must be at least 3 characters long.
+          </div>
+          <div *ngIf="category.errors?.['forbiddenName']" style="color:rgb(235, 232, 75)">
+            category cannot be Bob.
+          </div>
+
+      </div>
+
+
+      </div>
+      <div class="form-row">
+        <label class="col-sm-2 col-form-label font-bold" for="author" style="color:white">* * * Enter Author Details:* *
+          * </label>
         <br>
         <!-- <label class="col-sm-2 col-form-label font-bold" for="authorId"style="color:white">Author Id: </label>
         <input [(ngModel)]='book.author.id'  placeholder="Author Id" /><br> -->
-        <label class="col-sm-2 col-form-label font-bold" for="authorName"style="color:white"  placeholder="your name ">Author's Name: </label>
-        <input [(ngModel)]='book.author.name' required/><br>
-        <label class="col-sm-2 col-form-label font-bold" for="authorEmail"style="color:white" placeholder="someone@gmail.com">Author's Email: </label>
-        <input [(ngModel)]='book.author.authorEmail' required/><br>
-        <label class="col-sm-2 col-form-label font-bold" for="authorAge"style="color:white" placeholder="20">Author's Age: </label>
-        <input [(ngModel)]='book.author.age' required /> <br>
+       <div>
+        <label class="col-sm-2 col-form-label font-bold" for="authorName" style="color:white"
+          placeholder="your name ">Author's Name: </label>
+        <input [(ngModel)]='book.author.name'  id="authorName"name="authorName" required minlength="3"
+        appForbiddenName="bob" required #authorName="ngModel"/><br>
+        <div *ngIf="authorName.invalid && (authorName.dirty || authorName.touched)" class="alert">
 
+          <div *ngIf="authorName.errors?.['required']" style="color:rgb(235, 232, 75)">
+            Author Name is required*.
+          </div>
+          <div *ngIf="authorName.errors?.['minlength']" style="color:rgb(235, 232, 75)">
+            Author Name must be at least 3 characters long.
+          </div>
+          <div *ngIf="authorName.errors?.['forbiddenName']" style="color:rgb(235, 232, 75)">
+            Author Name cannot be Bob.
+          </div>
+
+      </div>
+
+      </div> 
+      <div>
+        <label class="col-sm-2 col-form-label font-bold" for="authorEmail" style="color:white"
+          placeholder="someone@gmail.com">Author's Email: </label>
+        <input [(ngModel)]='book.author.authorEmail' type="email" id="authorEmail"name="authorEmail" required minlength="3"
+        appForbiddenName="bob" required #authorEmail="ngModel"  /><br>
+        <div *ngIf="authorEmail.invalid && (authorEmail.dirty || authorEmail.touched)" class="alert">
+
+          <div *ngIf="authorEmail.errors?.['required']" style="color:rgb(235, 232, 75)">
+            Author Email is required*.
+          </div>
+          <div *ngIf="authorName.errors?.['minlength']" style="color:rgb(235, 232, 75)">
+            Author Email must be at least 3 characters long.
+          </div>
+          <div *ngIf="authorName.errors?.['forbiddenName']" style="color:rgb(235, 232, 75)">
+            Author Email cannot be Bob.
+          </div>
+
+
+      </div>
+      <div>
+        <label class="col-sm-2 col-form-label font-bold" for="authorAge" style="color:white" placeholder="20">Author's
+          Age: </label>
+        <input [(ngModel)]='book.author.age' id="authorAge" name=" authorAge" required minlength="2"maxlength="3" maxvalue="100"
+        appForbiddenName="bob" required #authorAge="ngModel" /> <br>
+        <div *ngIf="authorAge.invalid && (authorAge.dirty || authorAge.touched)" class="alert">
+
+          <div *ngIf="authorAge.errors?.['required']" style="color:rgb(235, 232, 75)">
+            Author Age is required*.
+          </div>
+          <div *ngIf="authorAge.errors?.['minlength']" style="color:rgb(235, 232, 75)">
+            Author Age should  be more  2 characters long.
+          </div>
+          <div *ngIf="authorAge.errors?.['forbiddenName']" style="color:rgb(235, 232, 75)">
+            Author Age cannot be Bob.
+          </div>
+
+
+      </div>
+      <br>
+      <input class="btn btn-primary" type="submit" (click)='saveBook()'><br>
     </div>
-    <br>
-    <input class="btn btn-primary" type="submit" (click)='saveBook()'><br>
-
     <hr>
 
-    <hr>
     <!-- <ol class="text-success">
         <p class="text-warning font-bold"> Available book Details in Library: </p>
 
@@ -102,128 +237,128 @@
     </ol> -->
 
     <!-- <li *ngIf="book.deleted !=true"> -->
-        <!-- <ng-container *ngFor='let book of books'> -->
-            <!-- <li *ngIf="book.deleted !=true"> -->
-              <!-- <ng-container *ngFor='let book of books'>        -->
+    <!-- <ng-container *ngFor='let book of books'> -->
+    <!-- <li *ngIf="book.deleted !=true"> -->
+    <!-- <ng-container *ngFor='let book of books'>        -->
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
-        
 
-        <!-- <ng-container *ngFor='let book of books'></ng-container> -->
-        <ng-container matColumnDef="title" style="width: 100%;" >
-           <th mat-header-cell *matHeaderCellDef > Title </th>
-           <td  mat-cell *matCellDef="let book">
-             <div > {{book.title | uppercase}}  </div>
-            </td>
-        </ng-container>
-       <!-- Symbol Column -->
-         <ng-container matColumnDef="price">
-           <th mat-header-cell *matHeaderCellDef> Price </th>
-           <td mat-cell *matCellDef="let book"> 
-            <div >  {{book.price}} </div>
-            </td>
-         </ng-container>
 
-         <ng-container matColumnDef="publisher">
-            <th mat-header-cell *matHeaderCellDef> Publisher </th>
-            <td mat-cell *matCellDef="let book">
-              <div >  {{book.publisher}}</div>
-            </td>
-          </ng-container>
+      <!-- <ng-container *ngFor='let book of books'></ng-container> -->
+      <ng-container matColumnDef="title" style="width: 100%;">
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let book">
+          <div> {{book.title | uppercase}} </div>
+        </td>
+      </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let book">
+          <div> {{book.price}} </div>
+        </td>
+      </ng-container>
 
-          <ng-container matColumnDef="publishedDate">
-            <th mat-header-cell *matHeaderCellDef> published Date</th>
-            <td mat-cell *matCellDef="let book">
-              <div> {{book.publishedDate | date}}</div>
-                </td>
-          </ng-container>
+      <ng-container matColumnDef="publisher">
+        <th mat-header-cell *matHeaderCellDef> Publisher </th>
+        <td mat-cell *matCellDef="let book">
+          <div> {{book.publisher}}</div>
+        </td>
+      </ng-container>
 
-          <ng-container matColumnDef="contents">
-            <th mat-header-cell *matHeaderCellDef> Contents </th>
-            <td mat-cell *matCellDef="let book"> 
-              <div > {{book.contents}}</div>
-               </td>
-          </ng-container>
+      <ng-container matColumnDef="publishedDate">
+        <th mat-header-cell *matHeaderCellDef> published Date</th>
+        <td mat-cell *matCellDef="let book">
+          <div> {{book.publishedDate | date}}</div>
+        </td>
+      </ng-container>
 
-          <ng-container matColumnDef="imageURL">
-            <th mat-header-cell *matHeaderCellDef> imageURL </th>
-            <td mat-cell *matCellDef="let book"> 
-              <div > {{book.imageURL}}</div>
-             </td>
-          </ng-container>
+      <ng-container matColumnDef="contents">
+        <th mat-header-cell *matHeaderCellDef> Contents </th>
+        <td mat-cell *matCellDef="let book">
+          <div> {{book.contents}}</div>
+        </td>
+      </ng-container>
 
-          <ng-container matColumnDef="active">
-            <th mat-header-cell *matHeaderCellDef> Active</th>
-            <td mat-cell *matCellDef="let book"> 
-              <div > {{book.active}}</div>
-              </td>
-          </ng-container>
-          <ng-container matColumnDef="category">
-            <th mat-header-cell *matHeaderCellDef> Category </th>
-            <td mat-cell *matCellDef="let book">
-              <div>{{book.category}}</div>
-            </td>
-          </ng-container>
-          
-          <ng-container matColumnDef="authorName">
-            <th mat-header-cell *matHeaderCellDef> Author Name </th>
-            <td mat-cell *matCellDef="let book"> 
-              <div >{{book.author.name}}</div>
-            </td>
-          </ng-container>
-          
-          <ng-container matColumnDef="authorEmail">
-            <th mat-header-cell *matHeaderCellDef> Author Email </th>
-            <td mat-cell *matCellDef="let book">
-              <div >{{book.author.authorEmail}} </div>
-               
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="age">
-            <th mat-header-cell *matHeaderCellDef> Author Age </th>
-            <td mat-cell *matCellDef="let book"> 
-              <div > {{book.author.age}}
-                <!-- <button (click)='deleteBook(book.id)'>Delete</button> -->
-            </div>
-             </td>
-          </ng-container>
-          <ng-container matColumnDef="action">
-            <th mat-header-cell *matHeaderCellDef> Action </th>
-            <td mat-cell *matCellDef="let book"> 
-              <div >
-                <button (click)='deleteBook(book.id)'>Delete</button>
-            </div>
-             </td>
-          </ng-container>
-          <!-- <button (click)='deleteBook(book.id)'>Delete</button> -->
-          <!-- <ng-container matColumnDef="deleteUser">
+      <ng-container matColumnDef="imageURL">
+        <th mat-header-cell *matHeaderCellDef> imageURL </th>
+        <td mat-cell *matCellDef="let book">
+          <div> {{book.imageURL}}</div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="active">
+        <th mat-header-cell *matHeaderCellDef> Active</th>
+        <td mat-cell *matCellDef="let book">
+          <div> {{book.active}}</div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> Category </th>
+        <td mat-cell *matCellDef="let book">
+          <div>{{book.category}}</div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="authorName">
+        <th mat-header-cell *matHeaderCellDef> Author Name </th>
+        <td mat-cell *matCellDef="let book">
+          <div>{{book.author.name}}</div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="authorEmail">
+        <th mat-header-cell *matHeaderCellDef> Author Email </th>
+        <td mat-cell *matCellDef="let book">
+          <div>{{book.author.authorEmail}} </div>
+
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef> Author Age </th>
+        <td mat-cell *matCellDef="let book">
+          <div> {{book.author.age}}
+            <!-- <button (click)='deleteBook(book.id)'>Delete</button> -->
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let book">
+          <div>
+            <button (click)='deleteBook(book.id)'>Delete</button>
+          </div>
+        </td>
+      </ng-container>
+      <!-- <button (click)='deleteBook(book.id)'>Delete</button> -->
+      <!-- <ng-container matColumnDef="deleteUser">
             <th mat-header-cell *matHeaderCellDef> Author Email: </th>
             <td mat-cell *matCellDef="let book"><button (click)='deleteBook(book.id)'>Delete</button></td>
           
         </ng-container> -->
-          <!-- Weight Column -->
-          <!-- <ng-container matColumnDef="email">
+      <!-- Weight Column -->
+      <!-- <ng-container matColumnDef="email">
            <th mat-header-cell *matHeaderCellDef> Email:  </th>
            <td mat-cell *matCellDef="let book">{{book.email}} 
            <button (click)='deleteBook(book.id)'>Delete</button></td>
          </ng-container> -->
-       
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
-        
-   </table>
 
- <!--
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+    <!--
 </ng-container> -->
 
 
-<div class="form-group">
-    <div class="alert alert-warning" role="alert" *ngIf="isCreateBookFailed">
+    <div class="form-group">
+      <div class="alert alert-warning" role="alert" *ngIf="isCreateBookFailed">
         Create book failed! Please fill all the fields<br />
         <!-- {{ errorMessage }} -->
+      </div>
     </div>
-  </div> 
     <div class="alert alert-success" *ngIf="isSuccessful">
-        Book is successfully created!
+      Book is successfully created!
     </div>
 
   </div>

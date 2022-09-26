@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Roles } from '../entity/Roles';
 
 import Users from '../entity/Users';
 import { UsersService } from '../service/users.service';
@@ -9,14 +10,20 @@ import { UsersService } from '../service/users.service';
 })
 export class NewregisterformComponent implements OnInit {
   //user:User= new User('ABC', 20, 'abc@gmail.com','****67');
- // users:Users= new Users('ABC', 'ROLE_ADMIN', 'abc@gmail.com','****67');
-  users:Users= new Users('ABC',  '\"role\"\: \[\"author\"\]', 'abc@gmail.com','****67');
+
+  public RolesEnum = Roles;
+  users:Users= new Users('ABC', Roles.ROLE_AUTHOR, 'abc@gmail.com','****67');
+  //users:Users= new Users('ABC', 'reader', 'abc@gmail.com','****67');
+ 
+  public roleTypes = Object.values(Roles);
+  //users:Users= new Users('ABC',  '\"role\"\: \[\"author\"\]', 'abc@gmail.com','****67');
   user:any=[];
   //roles: any=[];
   userData:any=[];
   roles: string[] = [];
   displayedColumns: string[] = ['name', 'roles[]', 'email', 'password'];
   dataSource:any= [];
+  selectedRole: any;
   
   constructor(public usersService:UsersService) { }
   
@@ -30,9 +37,11 @@ export class NewregisterformComponent implements OnInit {
   }
   private getUsers() {
     const observable = this.usersService.getUsers();
+    debugger;
     observable.subscribe(user => {
       this.user = user;
       this.dataSource= this.user;
+      console.log(this.dataSource);
     })
   }
   deleteUser(userid: number) {

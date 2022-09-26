@@ -15,6 +15,7 @@ export class AppComponent {
   showModeratorBoard = false;
   showReaderBoard = false;
   showAuthorBoard = false;
+  showUserBoard = false;
   username?: string;
  // title: any;
 
@@ -34,6 +35,7 @@ export class AppComponent {
 
       this.showReaderBoard = this.roles.includes('ROLE_READER');
       this.showAuthorBoard = this.roles.includes('ROLE_AUTHOR');
+      this.showUserBoard = this.roles.includes('ROLE_USER');
 
       this.username = user.username;
     }

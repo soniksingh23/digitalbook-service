@@ -60,7 +60,7 @@
         <li class="nav-item">
           <a href="/" class="text-primary" routerLink='header'> Home || </a>
         </li>
-        <!-- ROLE_READER -->
+        
         <!-- <li class="nav-item"  *ngIf="book.deleted !=true" > -->
         <li class="nav-item" *ngIf="!showReaderBoard">
           <a href="/bookform" class="text-primary" routerLink='bookform' > Book Form || </a>
@@ -75,6 +75,16 @@
         <li class="nav-item" *ngIf="showAdminBoard">
           <a href="/board-admin" class="text-primary" routerLink='board-admin' > Admin Board || </a>
         </li>
+        <li class="nav-item" *ngIf="showUserBoard">
+          <a href="/board-user" class="text-primary" routerLink='board-user' > User Board || </a>
+        </li>
+        <li class="nav-item" *ngIf="showAuthorBoard">
+          <a href="/board-author" class="text-primary" routerLink='board-author' > Author Board || </a>
+        </li>
+        <li class="nav-item" *ngIf="showReaderBoard">
+          <a href="/board-reader" class="text-primary" routerLink='board-reader' > Reader Board || </a>
+        </li>
+
         <li class="nav-item navbar-right" >
           <a href class="text-primary" (click)="logout()">LogOut</a>
         </li>

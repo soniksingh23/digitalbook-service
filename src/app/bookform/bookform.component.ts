@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import Author from '../entity/Author';
 import Book from '../entity/Book';
 import Reader from '../entity/Reader';
@@ -12,6 +13,7 @@ import { BookService } from '../service/book.service';
 
 
 export class BookformComponent implements OnInit {
+
 
   todayDate:Date= new Date();
   author: Author= new Author( "Smith","Smith@gmail.com", 26);

@@ -34,6 +34,10 @@ const routes: Routes=[
   {path:'newregisterform',component: NewregisterformComponent},
   {path:'profile',component: ProfileComponent},
   {path:'board-admin',component: BoardAdminComponent},
+  {path:'board-user',component: BoardUserComponent},
+  {path:'board-author',component: BoardAuthorComponent},
+  {path:'board-reader',component: BoardReaderComponent}
+  
 
 ]
 
