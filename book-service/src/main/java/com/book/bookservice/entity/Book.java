@@ -52,8 +52,6 @@ public class Book {
 	private boolean active;
 	
 	private boolean deleted;
-
-	// create a deleted colum
 	
 	@Enumerated(EnumType.STRING)
 	private Category category;
